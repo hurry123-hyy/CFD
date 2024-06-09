@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////
 //														//
-//			2D Euler Solver on Structured Grid			//
-//					by Wang Nianhua						//
-//				Email: nianhuawong@126.com				//
-//					   2021.6.7							//
+//			Blunt Solver on Structured Grid			//
+//					by Hu yiyue						//
+//				Email: yiyuehuu@gmail.com				//
+//					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
@@ -65,4 +65,4 @@ public:
 void Set_Mesh_Dimension(int NI, int NJ);
 void Get_IJK_Region(int& ist, int& ied, int& jst, int& jed);
 void Generate_Mesh_Double_Mach();
-void Generate_Mesh_Blunt_Body();
+void Generate_Mesh_Blunt();

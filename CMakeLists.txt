@@ -1,33 +1,45 @@
-﻿# CMakeList.txt: 2D_Euler_Solver 的 CMake 项目，在此处包括源代码并定义
-# 项目特定的逻辑。
-#
-cmake_minimum_required (VERSION 3.8)
+﻿# # CMakeList.txt: Blunt_Solver 的 CMake 项目，在此处包括源代码并定义
+# # 项目特定的逻辑。
 
-project ("2D_Euler_Solver")
+cmake_minimum_required(VERSION 3.8)
 
-#set(CMAKE_CXX_COMPILER  g++)
+project("Blunt_Solver")
 
-#include(CheckCXXCompilerFlag)
-#CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-#CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+# 添加OpenMP支持
+find_package(OpenMP REQUIRED)
+if(OpenMP_FOUND)
+    message(STATUS "Found OpenMP")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    add_definitions(-D_OPENMPH)
+else()
+    message(FATAL_ERROR "OpenMP not found!")
+endif()
 
-#if(COMPILER_SUPPORTS_CXX11)
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-#elseif(COMPILER_SUPPORTS_CXX0X)
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-#else()
-#message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-#endif()
+set(CMAKE_CXX_COMPILER g++)
 
-#set(CMAKE_CXX_FLAGS    -openmp)
-#set(OMP_NUM_THREADS   4)
-
-#包含目录
+# 包含目录
 include_directories("./include")
 
-
 set(CMAKE_CXX_STANDARD 11)
-# 将源代码添加到此项目的可执行文件。
-add_executable (2D_Euler_Solver "src/2D_Euler_Solver.cpp" "include/2D_Euler_Solver.h" "src/QlQr_Solver.cpp" "include/Global.h" "include/Flux_Solver.h" "src/Flux_Solver.cpp" "src/Global.cpp" "src/Geometry.cpp" "include/Geometry.h" "src/Spatial_Derivative.cpp" "include/Spatial_Derivative.h" "include/Time_Integral.h" "src/Time_Integral.cpp" "src/Post_Process.cpp" "include/Post_Process.h" "include/Time_Step.h" "src/Time_Step.cpp" "src/Compute_Boundary.cpp" "src/Init_Flow.cpp")
 
-# TODO: 如有需要，请添加测试并安装目标。
+# 将源代码添加到此项目的可执行文件
+add_executable(Blunt_Solver 
+    src/Blunt_Solver.cpp
+    src/QlQr_Solver.cpp
+    src/Flux_Solver.cpp
+    src/Global.cpp
+    src/Geometry.cpp
+    src/Spatial_Derivative.cpp
+    src/Time_Integral.cpp
+    src/Post_Process.cpp
+    src/Time_Step.cpp
+    src/Compute_Boundary.cpp
+    src/Init_Flow.cpp
+)
+
+# 添加OpenMP库链接
+target_link_libraries(Blunt_Solver OpenMP::OpenMP_CXX)
+
+# 设置OpenMP线程数
+# set(ENV{OMP_NUM_THREADS} 1)

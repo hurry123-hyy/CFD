@@ -1,63 +1,49 @@
 //////////////////////////////////////////////////////////
 //														//
-//			2D Euler Solver on Structured Grid			//
-//					by Wang Nianhua						//
-//				Email: nianhuawong@126.com				//
-//					   2021.6.7							//
+//			Blunt Solver on Structured Grid			//
+//					by Hu yiyue						//
+//				Email: yiyuehuu@gmail.com				//
+//					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
-#include<vector>
+#include <Global.h>
+
+#include <vector>
 using namespace std;
 
 extern VDouble3D fluxVector;
-class Flux_Solver
-{
-public:
-	Flux_Solver();
-	~Flux_Solver() {};
-protected:
-	double gama;
-	int ist, ied, jst, jed;
-	VDouble3D fluxVector1;
-	VDouble3D fluxVector2;
-	//VDouble2D Jacobian_A;
+class Flux_Solver {
+   public:
+    Flux_Solver();
+    ~Flux_Solver() {};
 
-public:
-	void Solve_Flux();
-protected:
-	void Roe_Scheme();
-	void Roe_Scheme_X();
-	void Roe_Scheme_Y();
+   protected:
+    double gama;
+    int ist, ied, jst, jed;
+    VDouble3D fluxVector1;
+    VDouble3D fluxVector2;
+    // VDouble2D Jacobian_A;
 
-	void Steger_Warming_Scheme();
-	void Steger_Warming_Scheme_X();
-	void Steger_Warming_Scheme_Y();
-	void Steger_Warming_Scheme_Interp_X();
-	void Steger_Warming_Scheme_Interp_Y();
+   public:
+    void Solve_Flux();
 
-	void VanLeer_Scheme();
-	void VanLeer_Scheme_X();
-	void VanLeer_Scheme_Y();
+   protected:
+    void Roe_Scheme();
+    void Roe_Scheme_X();
+    void Roe_Scheme_Y();
 
-	void WENO_Scheme();
-	void WENO_Scheme_X();
-	void WENO_Scheme_Y();
+   protected:
+    void Inviscid_Flux_F(VDouble& fluxVector, double rho, double u, double v, double p);
+    void Inviscid_Flux_G(VDouble& fluxVector, double rho, double u, double v, double p);
 
-protected:
-	void Inviscid_Flux_F(VDouble& fluxVector, double rho, double u, double v, double p);
-	void Inviscid_Flux_G(VDouble& fluxVector, double rho, double u, double v, double p);
 
-	void Steger_Flux_F(VDouble& fluxVector, double rho, double u, double v, double p, VDouble lmd);
-	void Steger_Flux_G(VDouble& fluxVector, double rho, double u, double v, double p, VDouble mu);
+    double Enthalpy(double rho, double u, double v, double p, double gama);
+    void EntropyFix(double& lamda1, double& lamda2, double& lamda3, double& lamda4);
+    void EntropyFix_Harten(double& lamda);
 
-	double Enthalpy(double rho, double u, double v, double p, double gama);
-	void EntropyFix(double& lamda1, double& lamda2, double& lamda3, double& lamda4);
-	void EntropyFix_Harten(double& lamda);
-
-	void Compute_Jacobian  (VDouble2D& Jacobian, double u, double v, double c, double H);
-	void Compute_Jacobian_X(VDouble2D& Jacobian, double u, double v, double c, double H,
-		double lamda1, double lamda2, double lamda3, double lamda4);
-	void Compute_Jacobian_Y(VDouble2D& Jacobian, double u, double v, double c, double H,
-		double lamda1, double lamda2, double lamda3, double lamda4);
+    void Compute_Jacobian(VDouble2D& Jacobian, double u, double v, double c, double H);
+    void Compute_Jacobian_X(VDouble2D& Jacobian, double u, double v, double c, double H, double lamda1, double lamda2,
+                            double lamda3, double lamda4);
+    void Compute_Jacobian_Y(VDouble2D& Jacobian, double u, double v, double c, double H, double lamda1, double lamda2,
+                            double lamda3, double lamda4);
 };
-	

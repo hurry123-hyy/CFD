@@ -1,4 +1,4 @@
-# 2D_Euler_Solver
+# Blunt_Solver
 
 This code includes:
 
@@ -20,3 +20,4 @@ This code can solve:
 
 
 For more information, please contact nhwang@skla.cardc.cn
+# CFD

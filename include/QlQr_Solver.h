@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////
 //														//
-//			2D Euler Solver on Structured Grid			//
-//					by Wang Nianhua						//
-//				Email: nianhuawong@126.com				//
-//					   2021.6.7							//
+//			Blunt Solver on Structured Grid			//
+//					by Hu yiyue						//
+//				Email: yiyuehuu@gmail.com				//
+//					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
@@ -35,13 +35,6 @@ protected:
 	void Boundary_QlQr_MUSCL_X();
 	void Boundary_QlQr_MUSCL_Y();
 
-	void QlQr_WCNS();
-	void QlQr_WCNS_X();
-	void QlQr_WCNS_Y();
-	void Boundary_QlQr_WCNS_X();
-	void Boundary_QlQr_WCNS_Y();
-	void Boundary_QlQr_WCNS_X_5th();
-	void Boundary_QlQr_WCNS_Y_5th();
 protected:
 
 };

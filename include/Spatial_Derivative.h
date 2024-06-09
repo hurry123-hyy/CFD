@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////
 //														//
-//			2D Euler Solver on Structured Grid			//
-//					by Wang Nianhua						//
-//				Email: nianhuawong@126.com				//
-//					   2021.6.7							//
+//			Blunt Solver on Structured Grid			//
+//					by Hu yiyue						//
+//				Email: yiyuehuu@gmail.com				//
+//					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
@@ -26,6 +26,4 @@ protected:
 	void Spatial_Derivative_X();
 	void Spatial_Derivative_Y();
 
-	void Spatial_Derivative_WCNS_X();
-	void Spatial_Derivative_WCNS_Y();
 };

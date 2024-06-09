@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////
 //														//
-//			2D Euler Solver on Structured Grid			//
-//					by Wang Nianhua						//
-//				Email: nianhuawong@126.com				//
-//					   2021.6.7							//
+//			Blunt Solver on Structured Grid			//
+//					by Hu yiyue						//
+//				Email: yiyuehuu@gmail.com				//
+//					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
@@ -27,10 +27,9 @@ typedef vector < double      > VDouble;
 typedef vector < VDouble     > VDouble2D;
 typedef vector < VDouble2D   > VDouble3D;
 
-extern int			num_of_prim_vars;
+extern int			num_of_primitive_vars;
 extern int			current_step, max_num_of_steps;
 extern double		cfl_num, time_step, physical_time, max_simu_time;
-extern int			method_of_half_q;
 extern int			method_of_limiter;
 extern int			method_of_flux;
 extern double		muscl_k;
@@ -44,7 +43,6 @@ extern string		tec_file_name;
 extern int			num_of_RK_stages;
 extern VDouble2D	RK_Coeff;
 extern clock_t		lastTime, nowTime;
-extern int			global_case_id;
 extern int			grid_refine_coeff;
 template < typename T >
 void Allocate_2D_Vector(vector< vector< T > >& array, int dim1, int dim2)
