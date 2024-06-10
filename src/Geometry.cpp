@@ -6,7 +6,6 @@
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #include "Geometry.h"
-
 #include "Blunt_Solver.h"
 #include "Global.h"
 

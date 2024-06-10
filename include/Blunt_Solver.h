@@ -6,24 +6,23 @@
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #pragma once
-#include<string>
-class Simulation
-{
-public:
-	Simulation() {}
-	~Simulation(){}
+#include <string>
+class Simulation {
+   public:
+    Simulation() {
+    }
+    ~Simulation() {
+    }
 
-public:
-	void Run();
+   public:
+    void Run();
 };
 
 void InitializeOpenMP(char** argv);
 
 void Init_Global_Param();
-// void Init_Flow();
 void Init_Flow_Blunt_Body();
 void Compute_Boundary_Blunt_Body();
-// void Compute_Boundary_Double_Mach();
 void Load_Q();
 void Set_Solve_Direction(char direction);
 void Solve_QlQr();

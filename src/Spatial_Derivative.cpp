@@ -5,9 +5,8 @@
 //				Email: yiyuehuu@gmail.com				//
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
-#include "Spatial_Derivative.h"
-
 #include <iostream>
+#include "Spatial_Derivative.h"
 
 #include "Blunt_Solver.h"
 #include "Flux_Solver.h"

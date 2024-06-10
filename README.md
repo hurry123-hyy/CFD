@@ -1,23 +1,19 @@
 # Blunt_Solver
 
-This code includes:
+This code only includes:
 
-2nd order MUSCL: Roe, vanLeer, Steger-Warming
+2nd order MUSCL: Roe
 
 limiter function: vanleer, minmod, superbee
-
-high order shcemes: WENO5, WCNS-E6E5
 
 time integration: TVD RK3, TVD RK2
 
 This code can solve: 
 
-1. double mach refeclection
+1. supersonic flow past a blunt body
 
-2. supersonic flow past a blunt body
-
-3. other 2d inviscid problems (with some modifications of the code)
+2. other 2d inviscid problems (with some modifications of the code)
 
 
-For more information, please contact nhwang@skla.cardc.cn
+For more information, please contact yiyuehuu@gmail.com
 # CFD

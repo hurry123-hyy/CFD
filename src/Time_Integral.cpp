@@ -6,12 +6,8 @@
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
 #include "Time_Integral.h"
-
 #include <cmath>
-#include <iostream>
-
 #include "Blunt_Solver.h"
-#include "Flux_Solver.h"
 #include "Geometry.h"
 #include "Global.h"
 #include "QlQr_Solver.h"

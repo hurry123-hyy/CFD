@@ -5,11 +5,10 @@
 //				Email: yiyuehuu@gmail.com				//
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
-#include "QlQr_Solver.h"
-
 #include <cmath>
 #include <iostream>
 
+#include "QlQr_Solver.h"
 #include "Blunt_Solver.h"
 #include "Geometry.h"
 
@@ -199,7 +198,6 @@ void QlQr_Solver::QlQr_MUSCL_Y() {
     }
 }
 
-
 double QlQr_Solver::Limiter_Function(double ita) {
     if (method_of_limiter == 0)  // nolim
     {
@@ -213,7 +211,7 @@ double QlQr_Solver::Limiter_Function(double ita) {
     } else if (method_of_limiter == 3)  // superbee
     {
         return superbee_limiter(ita, 1.0);
-    } 
+    }
 }
 
 // ÏÞÖÆÆ÷º¯Êý

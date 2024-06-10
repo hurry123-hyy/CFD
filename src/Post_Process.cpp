@@ -5,17 +5,16 @@
 //				Email: yiyuehuu@gmail.com				//
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
-#include "Post_Process.h"
 
 #include <cmath>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 
+#include "Post_Process.h"
 #include "Geometry.h"
 #include "Global.h"
 #include "QlQr_Solver.h"
-#include "Spatial_Derivative.h"
 
 bool stop_by_residual = 0;
 void Compute_Residual() {

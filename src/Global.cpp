@@ -8,7 +8,6 @@
 //////////////////////////////////////////////////////////
 #include "Global.h"
 
-#include <fstream>
 #include <iostream>
 
 #include "Blunt_Solver.h"
@@ -22,7 +21,6 @@
 #endif
 
 #ifdef WIN32
-#include <direct.h>
 #else
 #include <sys/stat.h>
 #endif
@@ -83,10 +81,6 @@ void Init_Global_Param() {
     Input_Parameters();
 
     MakeDirectory("./results");
-
-    // #ifndef _WIN32
-    // 	Read_Parameter_File("./input.txt");	//在集群上计算时，可通过参数文件设置参数
-    // #endif // !_WIN32
 }
 
 void Load_Q() {
@@ -192,7 +186,6 @@ void ExtractValue(VDouble primitiveVector, double& rm, double& um, double& vm, d
     vm = primitiveVector[IV];
     pm = primitiveVector[IP];
 }
-
 
 void MakeDirectory(const string& directoryName) {
 #ifdef WIN32

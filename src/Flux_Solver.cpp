@@ -5,11 +5,10 @@
 //				Email: yiyuehuu@gmail.com				//
 //					   2024.6.2							//
 //////////////////////////////////////////////////////////
-#include "Flux_Solver.h"
-
 #include <cmath>
 #include <iostream>
 
+#include "Flux_Solver.h"
 #include "Blunt_Solver.h"
 #include "Geometry.h"
 #include "Global.h"
@@ -200,7 +199,6 @@ void Flux_Solver::Roe_Scheme_Y() {
     }
 #endif  // _OPENMP
 }
-
 
 void Flux_Solver::Inviscid_Flux_F(VDouble& fluxVector, double rho, double u, double v, double p) {
     double E = p / (gama - 1) + 0.5 * rho * (u * u + v * v);

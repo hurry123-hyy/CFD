@@ -22,7 +22,6 @@ class Flux_Solver {
     int ist, ied, jst, jed;
     VDouble3D fluxVector1;
     VDouble3D fluxVector2;
-    // VDouble2D Jacobian_A;
 
    public:
     void Solve_Flux();
@@ -35,7 +34,6 @@ class Flux_Solver {
    protected:
     void Inviscid_Flux_F(VDouble& fluxVector, double rho, double u, double v, double p);
     void Inviscid_Flux_G(VDouble& fluxVector, double rho, double u, double v, double p);
-
 
     double Enthalpy(double rho, double u, double v, double p, double gama);
     void EntropyFix(double& lamda1, double& lamda2, double& lamda3, double& lamda4);

@@ -52,7 +52,7 @@ void Simulation::Run() {
 
     Init_Flow_Blunt_Body();
 
-    for (current_step = 1; current_step <= max_num_of_steps; current_step++) {  // case1迭代2k，case2迭代5k
+    for (current_step = 1; current_step <= max_num_of_steps; current_step++) {  // 默认迭代5k
         Solve_Time_Step();
 
         Compute_Boundary_Blunt_Body();
@@ -69,8 +69,8 @@ void Simulation::Run() {
             break;
         }
 
-        Set_Field();
     }
+        Set_Field();
 
     Output_Flowfield();
 }
